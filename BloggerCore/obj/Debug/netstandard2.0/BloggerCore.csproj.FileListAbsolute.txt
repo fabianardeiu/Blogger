@@ -1,0 +1,12 @@
+C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerCore\obj\Debug\netstandard2.0\BloggerCore.AssemblyInfoInputs.cache
+C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerCore\obj\Debug\netstandard2.0\BloggerCore.AssemblyInfo.cs
+C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerCore\bin\Debug\netstandard2.0\BloggerCore.deps.json
+C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerCore\bin\Debug\netstandard2.0\BloggerCore.dll
+C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerCore\bin\Debug\netstandard2.0\BloggerDomain.dll
+C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerCore\bin\Debug\netstandard2.0\BloggerDomain.pdb
+C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerCore\obj\Debug\netstandard2.0\BloggerCore.csprojAssemblyReference.cache
+C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerCore\obj\Debug\netstandard2.0\BloggerCore.csproj.CopyComplete
+C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerCore\bin\Debug\netstandard2.0\BloggerCore.pdb
+C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerCore\obj\Debug\netstandard2.0\BloggerCore.csproj.CoreCompileInputs.cache
+C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerCore\obj\Debug\netstandard2.0\BloggerCore.dll
+C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerCore\obj\Debug\netstandard2.0\BloggerCore.pdb
