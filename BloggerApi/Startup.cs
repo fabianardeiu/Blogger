@@ -37,6 +37,8 @@ namespace BloggerApi
 
             services.AddScoped<IUnitOfWork, BloggerContext>();
 
+            services.AddCors();
+            services.AddMvc(option => option.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +54,11 @@ namespace BloggerApi
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(options => options.WithOrigins("https://localhost:5001")
+                                                     .AllowAnyMethod()
+                                                     .AllowAnyHeader()
+                                                     .AllowAnyOrigin());
 
             app.UseEndpoints(endpoints =>
             {
