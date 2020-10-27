@@ -28,12 +28,15 @@ namespace BloggerCore.QueriesHandlers.Posts
                 .Select(p => new PostDto
                 {
                     Id = p.Id,
-                    Title = p.Title,
+                    CreatedAt = p.CreatedAt,
+                    PersonName = p.Person.FirstName + " " + p.Person.LastName,
+                    PersonId = p.PersonId,
                     Image = p.Image,
                     Text = p.Text,
                     Likes = p.Likes.Select(l => new LikeDto { PostId = l.PostId, PersonName = l.Person.FirstName + " " + l.Person.LastName }).ToList(),
                     Comments = p.Comments.Select(c => new CommentDto {PostId = c.PostId, Text = c.Text, PersonName = c.Person.FirstName + " " + c.Person.LastName }).ToList()
                 })
+                .OrderByDescending(p => p.CreatedAt)
                 .ToListAsync();
 
             return posts;

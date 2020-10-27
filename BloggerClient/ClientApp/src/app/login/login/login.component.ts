@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
         if (person != null) {
           this.router.navigate(['home']);
           localStorage.setItem('person', person.firstName + ' ' + person.lastName);
+          localStorage.setItem('personId', person.id);
         } else {
           this.error = true;
         }

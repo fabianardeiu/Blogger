@@ -25,6 +25,7 @@ namespace BloggerCore.CommandsHandlers.Posts
         {
             var post = _mapper.Map<Post>(request.CreatePostDto);
             post.PersonId = request.PersonId;
+            post.CreatedAt = DateTime.Now;
 
             _unitOfWork.Posts.Add(post);
             await _unitOfWork.SaveChangesAsync();

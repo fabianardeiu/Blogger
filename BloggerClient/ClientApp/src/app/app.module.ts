@@ -12,10 +12,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule, } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { RegisterComponent } from './register/register/register.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeComponent } from './home/home/home.component';
+import { MyProfileComponent } from './my-profile/my-profile/my-profile.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { HomeComponent } from './home/home/home.component';
     NavMenuComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    MyProfileComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,7 +36,8 @@ import { HomeComponent } from './home/home/home.component';
     RouterModule.forRoot([
       { path: '', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'home', component: HomeComponent }
+      { path: 'home', component: HomeComponent },
+      { path: 'my-profile', component: MyProfileComponent }
     ]),
     BrowserAnimationsModule,
     MatCardModule,
@@ -41,9 +46,11 @@ import { HomeComponent } from './home/home/home.component';
     MatIconModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    SharedModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
