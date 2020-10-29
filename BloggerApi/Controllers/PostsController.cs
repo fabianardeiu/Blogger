@@ -99,5 +99,29 @@ namespace BloggerApi.Controllers
 
             return Ok();
         }
+
+        [HttpGet]
+        [Route("{postId}")]
+        public async Task<IActionResult> GetPostById(Guid postId)
+        {
+            var postDto = await _mediator.Send(new GetPostByIdQuery
+            {
+                PostId = postId
+            });
+
+            return Ok(postDto);
+        }
+
+        [HttpPost]
+        [Route("update")]
+        public async Task<IActionResult> UpdatePost([FromBody] UpdatePostDto postDto)
+        {
+            await _mediator.Send(new UpdatePostCommand
+            {
+                PostDto = postDto
+            });
+
+            return Ok();
+        }
     }
 }

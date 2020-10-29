@@ -1,0 +1,10 @@
+.my-profile-card {
+  margin-bottom: 30px;
+  background-image: linear-gradient(rgb(63, 81, 181), rgb(184, 26, 134));
+  color: white;
+}
+
+.profile-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}

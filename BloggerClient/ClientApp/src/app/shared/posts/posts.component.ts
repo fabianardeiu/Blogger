@@ -7,13 +7,14 @@ import { Like } from '../../models/like';
 import { AddCommentsDialogComponent } from '../add-comments-dialog/add-comments-dialog.component';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { AddPostDialogComponent } from '../add-post-dialog/add-post-dialog.component';
+import { EditPostDialogComponent } from '../edit-post-dialog/edit-post-dialog.component';
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css']
 })
-export class PostsComponent implements OnInit, OnChanges {
+export class PostsComponent implements OnInit {
 
   @Input() posts: Post[];
   currentPersonId: string;
@@ -95,7 +96,21 @@ export class PostsComponent implements OnInit, OnChanges {
   }
 
   editPost(postId: string) {
-    
+    let dialogRef = this.dialog.open(EditPostDialogComponent, {
+      width: '400px',
+      data: postId
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        var updatedPost = new Post();
+        updatedPost.id = result.id;
+        updatedPost.text = result.text;
+        this.postsService.updatePost(updatedPost).subscribe(res => {
+          this.snackBar.openSuccess('Post successfully updated.');
+        });
+      }
+    });
+    dialogRef = null;
   }
 
   addPost() {

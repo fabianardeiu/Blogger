@@ -21,7 +21,7 @@ mat-card-content {
   background-color: red;
 }
 
-/*.page-login {
+.page-login {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -29,7 +29,7 @@ mat-card-content {
   display: flex;
   justify-content: center;
   align-items: center;
-}*/
+}
 
 /*.image {
   left: 0;

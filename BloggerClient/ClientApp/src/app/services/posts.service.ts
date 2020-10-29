@@ -42,6 +42,14 @@ export class PostsService {
   }
 
   addPost(post: Post) {
-    return this.httpClient.post<Comment>(`${this.apiHost}/${this.baseUrl}`, post)
+    return this.httpClient.post<Post>(`${this.apiHost}/${this.baseUrl}`, post);
+  }
+
+  getPostById(postId: string) {
+    return this.httpClient.get<Post>(`${this.apiHost}/${this.baseUrl}/${postId}`);
+  }
+
+  updatePost(post: Post) {
+    return this.httpClient.post<Post>(`${this.apiHost}/${this.baseUrl}/update`, post);
   }
 }

@@ -13,18 +13,21 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.component';
+import { EditPostDialogComponent } from './edit-post-dialog/edit-post-dialog.component';
 
 @NgModule({
   declarations: [
     AddCommentsDialogComponent,
     PostsComponent,
     ConfirmationDialogComponent,
-    AddPostDialogComponent
+    AddPostDialogComponent,
+    EditPostDialogComponent
   ],
   entryComponents: [
     AddCommentsDialogComponent,
     ConfirmationDialogComponent,
-    AddPostDialogComponent
+    AddPostDialogComponent,
+    EditPostDialogComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +46,8 @@ import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.compon
     AddCommentsDialogComponent,
     PostsComponent,
     ConfirmationDialogComponent,
-    AddPostDialogComponent
+    AddPostDialogComponent,
+    EditPostDialogComponent
   ]
 })
 export class SharedModule { }

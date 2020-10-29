@@ -15,6 +15,7 @@ export class MyProfileComponent implements OnInit {
 
   posts: Post[] = [];
   currentPersonId: string;
+  currentPersonName: string;
 
   constructor(
     private postsService: PostsService,
@@ -23,6 +24,7 @@ export class MyProfileComponent implements OnInit {
 
   ngOnInit() {
     this.currentPersonId = localStorage.getItem('personId');
+    this.currentPersonName = localStorage.getItem('person');
     this.getPersonPosts();
   }
 

@@ -1,3 +1,11 @@
-<app-nav-menu></app-nav-menu>
-<app-posts [posts]="posts"></app-posts>
+<div class="container">
+  <app-nav-menu></app-nav-menu>
 
+  <mat-card class="my-profile-card">
+    <!--<div mat-card-avatar class="profile-image"></div>-->
+    <mat-card-title>{{currentPersonName}}</mat-card-title>
+
+  </mat-card>
+
+  <app-posts [posts]="posts"></app-posts>
+</div>
