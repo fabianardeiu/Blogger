@@ -30,6 +30,7 @@
     <None Remove="ClientApp\src\app\models\post.ts" />
     <None Remove="ClientApp\src\app\models\register-user.ts" />
     <None Remove="ClientApp\src\app\models\user.ts" />
+    <None Remove="ClientApp\src\app\shared\confirmation-dialog\confirmation-dialog.dialogdata.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +45,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\models\post.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\register-user.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\user.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\confirmation-dialog\confirmation-dialog.dialogdata.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

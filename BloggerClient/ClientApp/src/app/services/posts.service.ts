@@ -17,6 +17,10 @@ export class PostsService {
   constructor(private httpClient: HttpClient) {
   }
 
+  getAllPosts(): Observable<Post[]> {
+    return this.httpClient.get<Post[]>(`${this.apiHost}/${this.baseUrl}`);
+  }
+
   getPersonPosts(personId: string): Observable<Post[]> {
     return this.httpClient.get<Post[]>(`${this.apiHost}/${this.baseUrl}/person/` + personId);
   }
@@ -31,5 +35,13 @@ export class PostsService {
 
   getPostComments(postId: string): Observable<Comment[]> {
     return this.httpClient.get<Comment[]>(`${this.apiHost}/${this.baseUrl}/${postId}/comment`);
+  }
+
+  deletePost(postId: string) {
+    return this.httpClient.delete(`${this.apiHost}/${this.baseUrl}/${postId}`);
+  }
+
+  addPost(post: Post) {
+    return this.httpClient.post<Comment>(`${this.apiHost}/${this.baseUrl}`, post)
   }
 }

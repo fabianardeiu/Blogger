@@ -24,7 +24,6 @@ namespace BloggerCore.CommandsHandlers.Posts
         public async Task<Unit> Handle(CreatePostCommand request, CancellationToken cancellationToken)
         {
             var post = _mapper.Map<Post>(request.CreatePostDto);
-            post.PersonId = request.PersonId;
             post.CreatedAt = DateTime.Now;
 
             _unitOfWork.Posts.Add(post);

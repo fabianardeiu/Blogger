@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>
+ <span [innerHtml]="title"></span>
+</h1>
+<mat-dialog-content>
+  <div [innerHtml]="messageText"></div>
+</mat-dialog-content>
+<mat-dialog-actions class="justify-content-end">
+  <button mat-button mat-raised-button (click)="onConfirm()" color="primary">{{ okBtnText }}</button>
+  <button mat-button mat-raised-button (click)="onDecline()">{{ cancelBtnText }}</button>
+</mat-dialog-actions>

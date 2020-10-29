@@ -12,4 +12,5 @@ export class Post {
   comments: Comment[];
   likesCount: number;
   commentsCount: number;
+  currentUser: boolean;
 }

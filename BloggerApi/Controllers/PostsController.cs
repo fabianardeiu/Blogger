@@ -23,6 +23,14 @@ namespace BloggerApi.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> GetAllPosts()
+        {
+            var result = await _mediator.Send(new GetAllPostsQuery());
+
+            return Ok(result);
+        }
+
+        [HttpGet]
         [Route("person/{personId}")]
         public async Task<IActionResult> GetPersonPosts(Guid personId)
         {
@@ -35,12 +43,10 @@ namespace BloggerApi.Controllers
         }
 
         [HttpPost]
-        [Route("{personId}")]
-        public async Task<IActionResult> CreatePost([FromBody] CreatePostDto createPostDto, Guid personId)
+        public async Task<IActionResult> CreatePost([FromBody] CreatePostDto createPostDto)
         {
             await _mediator.Send(new CreatePostCommand
             {
-                PersonId = personId,
                 CreatePostDto = createPostDto
             });
 
@@ -81,6 +87,17 @@ namespace BloggerApi.Controllers
             });
 
             return Ok(commentsDtos);
+        }
+
+        [HttpDelete]
+        [Route("{postId}")]
+        public async Task<IActionResult> DeletePost(Guid postId)
+        {
+            await _mediator.Send(new DeletePostCommand {
+                PostId = postId
+            });
+
+            return Ok();
         }
     }
 }

@@ -7,10 +7,25 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { PostsComponent } from './posts/posts.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.component';
 
 @NgModule({
-  declarations: [AddCommentsDialogComponent],
-  entryComponents: [AddCommentsDialogComponent],
+  declarations: [
+    AddCommentsDialogComponent,
+    PostsComponent,
+    ConfirmationDialogComponent,
+    AddPostDialogComponent
+  ],
+  entryComponents: [
+    AddCommentsDialogComponent,
+    ConfirmationDialogComponent,
+    AddPostDialogComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -19,8 +34,16 @@ import { MatListModule } from '@angular/material/list';
     ReactiveFormsModule,
     MatDialogModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule
   ],
-  exports: [ AddCommentsDialogComponent]
+  exports: [
+    AddCommentsDialogComponent,
+    PostsComponent,
+    ConfirmationDialogComponent,
+    AddPostDialogComponent
+  ]
 })
 export class SharedModule { }
