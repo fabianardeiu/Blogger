@@ -46,5 +46,41 @@ namespace BloggerApi.Controllers
 
             return Ok();
         }
+
+        [HttpPost]
+        [Route("comment")]
+        public async Task<IActionResult> CommentPost([FromBody] CommentDto commentDto)
+        {
+            await _mediator.Send(new CommentPostCommand
+            {
+                CommentDto = commentDto
+            });
+
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("like")]
+        public async Task<IActionResult> LikePost([FromBody] LikeDto likeDto)
+        {
+            var action = await _mediator.Send(new LikePostCommand
+            {
+                LikeDto = likeDto
+            });
+
+            return Ok(action);
+        }
+
+        [HttpGet]
+        [Route("{postId}/comment")]
+        public async Task<IActionResult> GetPostComments(Guid postId)
+        {
+            var commentsDtos = await _mediator.Send(new GetPostCommentsQuery
+            {
+                PostId = postId
+            });
+
+            return Ok(commentsDtos);
+        }
     }
 }

@@ -4,6 +4,7 @@ import { Post } from '../../models/post';
 import { Like } from '../../models/like';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCommentsDialogComponent } from '../../shared/add-comments-dialog/add-comments-dialog.component';
+import { SimpleSnackBarService } from '../../services/simple-snack-bar.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -18,8 +19,10 @@ export class MyProfileComponent implements OnInit {
 
   constructor(
     private postsService: PostsService,
-    private dialog: MatDialog
-  ) { }
+    private dialog: MatDialog,
+    private snackBar: SimpleSnackBarService
+  ) {
+  }
 
   ngOnInit() {
     this.currentPersonId = localStorage.getItem('personId');
@@ -43,23 +46,43 @@ export class MyProfileComponent implements OnInit {
 
   like(postId: string) {
     var post = this.posts.find(p => p.id == postId);
-    if (post.likes.some(l => l.personId == this.currentPersonId))
-      return;
 
     var newLike = new Like();
     newLike.postId = postId;
     newLike.personId = this.currentPersonId;
     newLike.personName = this.currentPersonName;
 
-    post.likes.push(newLike);
-    post.likesCount += 1;
+    this.postsService.likePost(newLike).subscribe(like => {
+      if (!like) {
+        post.likes = post.likes.filter(l => l.personId != this.currentPersonId);
+        post.likesCount -= 1;
+      }
+      else {
+        post.likes.push(newLike);
+        post.likesCount += 1;
+      }
+     
+    });
+
   }
 
   comment(postId: string) {
     var post = this.posts.find(p => p.id == postId);
-    this.dialog.open(AddCommentsDialogComponent, {
-      width: '400px'
+    let dialogRef = this.dialog.open(AddCommentsDialogComponent, {
+      width: '400px',
+      data: post.id
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.postsService.commentPost(result).subscribe(res => {
+          this.snackBar.openSuccess('Comment successfully created.');
+          var post = this.posts.find(p => p.id == postId);
+          post.commentsCount += 1;
+        });
+      }
+    });
+    dialogRef = null;
   }
 
 }

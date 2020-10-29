@@ -16,7 +16,7 @@ namespace BloggerCore.QueriesHandlers.Posts
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public GetPersonPostsQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public GetPersonPostsQueryHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
@@ -24,6 +24,7 @@ namespace BloggerCore.QueriesHandlers.Posts
         public async Task<IEnumerable<PostDto>> Handle(GetPersonPostsQuery request, CancellationToken cancellationToken)
         {
             var posts = await _unitOfWork.Posts
+                .Include(p => p.Person)
                 .Where(p => p.PersonId == request.PersonId)
                 .Select(p => new PostDto
                 {

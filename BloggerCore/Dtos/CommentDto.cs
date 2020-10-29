@@ -8,6 +8,7 @@ namespace BloggerCore.Dtos
     {
         public Guid PostId { get; set; }
         public string Text { get; set; }
+        public Guid PersonId { get; set; }
         public string PersonName { get; set; }
     }
 }

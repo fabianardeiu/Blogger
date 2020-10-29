@@ -1,1 +1,24 @@
-<p>add-comments-dialog works!</p>
+<form [formGroup]="commentForm">
+
+  <mat-dialog-content>
+    <mat-form-field style="width:100%">
+      <input matInput
+             placeholder="Comment"
+             formControlName="text" />
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button mat-raised-button type="submit" (click)="onConfirm()" color="primary">Save</button>
+    <button mat-button mat-raised-button type="button" (click)="onDecline()" class="btn">Back</button>
+  </mat-dialog-actions>
+
+  <div style="max-height:200px; overflow:auto; margin-top: 20px">
+    <mat-list>
+      <mat-list-item *ngFor="let comment of comments">
+        <mat-divider></mat-divider>
+        <p><b>{{comment.personName}}:</b> {{comment.text}}</p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</form>
