@@ -8,6 +8,8 @@ import { AddCommentsDialogComponent } from '../add-comments-dialog/add-comments-
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { AddPostDialogComponent } from '../add-post-dialog/add-post-dialog.component';
 import { EditPostDialogComponent } from '../edit-post-dialog/edit-post-dialog.component';
+import { Person } from '../../models/person';
+import { PersonsService } from '../../services/persons.service';
 
 @Component({
   selector: 'app-posts',
@@ -18,18 +20,24 @@ export class PostsComponent implements OnInit {
 
   @Input() posts: Post[];
   currentPersonId: string;
-  currentPersonName: string;
+  currentPerson: Person;
 
   constructor(
     private postsService: PostsService,
+    private personsService: PersonsService,
     private dialog: MatDialog,
     private snackBar: SimpleSnackBarService
 
   ) { }
 
   ngOnInit() {
+
     this.currentPersonId = localStorage.getItem('personId');
-    this.currentPersonName = localStorage.getItem('person');
+
+    this.personsService.getPersonProfile(localStorage.getItem('personId')).subscribe(res => {
+      this.currentPerson = res;
+      this.currentPerson.image = "data:image/jpeg;base64," + this.currentPerson.image;
+    });
   }
 
   like(postId: string) {
@@ -38,7 +46,7 @@ export class PostsComponent implements OnInit {
     var newLike = new Like();
     newLike.postId = postId;
     newLike.personId = this.currentPersonId;
-    newLike.personName = this.currentPersonName;
+    newLike.personName = this.currentPerson.firstName + ' ' + this.currentPerson.lastName;
 
     this.postsService.likePost(newLike).subscribe(like => {
       if (!like) {
@@ -130,8 +138,12 @@ export class PostsComponent implements OnInit {
             if (res.image != '') {
               res.image = "data:image/jpeg;base64," + res.image;
             }
+            if (this.currentPerson.image != null) {
+              res.personImage = this.currentPerson.image;
+            }
             res.likesCount = res.likes.length;
             res.commentsCount = res.comments.length;
+            res.currentUser = true;
             this.posts.push(res);
             this.posts.sort((val1, val2) => {
               return new Date(val2.createdAt).getTime() - new

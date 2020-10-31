@@ -4,10 +4,10 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
-    MyProfileComponent
+    MyProfileComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class MyProfileModule { }

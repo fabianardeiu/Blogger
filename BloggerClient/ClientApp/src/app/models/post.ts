@@ -7,6 +7,7 @@ export class Post {
   image: any;
   text: string;
   personName: string;
+  personImage: any;
   personId: string;
   likes: Like[];
   comments: Comment[];

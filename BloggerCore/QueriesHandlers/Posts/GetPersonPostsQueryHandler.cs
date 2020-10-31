@@ -32,6 +32,7 @@ namespace BloggerCore.QueriesHandlers.Posts
                     CreatedAt = p.CreatedAt,
                     PersonName = p.Person.FirstName + " " + p.Person.LastName,
                     PersonId = p.PersonId,
+                    PersonImage = p.Person.Image,
                     Image = p.Image,
                     Text = p.Text,
                     Likes = p.Likes.Select(l => new LikeDto { PostId = l.PostId, PersonName = l.Person.FirstName + " " + l.Person.LastName }).ToList(),

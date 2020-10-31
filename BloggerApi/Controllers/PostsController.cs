@@ -14,12 +14,10 @@ namespace BloggerApi.Controllers
     public class PostsController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly IMapper _mapper;
 
-        public PostsController(IMediator mediator, IMapper mapper)
+        public PostsController(IMediator mediator)
         {
             _mediator = mediator;
-            _mapper = mapper;
         }
 
         [HttpGet]

@@ -11,7 +11,7 @@
   <mat-card class="example-card" *ngFor="let post of posts">
 
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
+      <img *ngIf="post.personImage != null" mat-card-avatar class="profile-image" [src]="post.personImage" />
       <mat-card-title>{{post.personName}}</mat-card-title>
       <mat-card-subtitle>{{post.createdAt | date: 'dd-MMM HH:mm'}}</mat-card-subtitle>
       <div class="marks-menu" style="margin-left: auto;" *ngIf="post.currentUser">
@@ -19,11 +19,11 @@
           <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="deletePost(post.id)">
-            <span><mat-icon>delete</mat-icon>Delete</span>
-          </button>
           <button mat-menu-item (click)="editPost(post.id)">
             <span><mat-icon>edit</mat-icon>Edit</span>
+          </button>
+          <button mat-menu-item (click)="deletePost(post.id)">
+            <span><mat-icon>delete</mat-icon>Delete</span>
           </button>
         </mat-menu>
       </div>

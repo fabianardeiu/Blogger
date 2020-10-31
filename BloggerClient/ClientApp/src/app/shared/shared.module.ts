@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.component';
 import { EditPostDialogComponent } from './edit-post-dialog/edit-post-dialog.component';
+import { UpdateProfileDialogComponent } from './update-profile-dialog/update-profile-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,15 @@ import { EditPostDialogComponent } from './edit-post-dialog/edit-post-dialog.com
     PostsComponent,
     ConfirmationDialogComponent,
     AddPostDialogComponent,
-    EditPostDialogComponent
+    EditPostDialogComponent,
+    UpdateProfileDialogComponent
   ],
   entryComponents: [
     AddCommentsDialogComponent,
     ConfirmationDialogComponent,
     AddPostDialogComponent,
-    EditPostDialogComponent
+    EditPostDialogComponent,
+    UpdateProfileDialogComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +50,8 @@ import { EditPostDialogComponent } from './edit-post-dialog/edit-post-dialog.com
     PostsComponent,
     ConfirmationDialogComponent,
     AddPostDialogComponent,
-    EditPostDialogComponent
+    EditPostDialogComponent,
+    UpdateProfileDialogComponent
   ]
 })
 export class SharedModule { }

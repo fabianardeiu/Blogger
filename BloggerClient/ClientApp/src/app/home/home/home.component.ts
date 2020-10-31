@@ -26,6 +26,9 @@ export class HomeComponent implements OnInit {
         if (p.image != '') {
           p.image = "data:image/jpeg;base64," + p.image;
         }
+        if (p.personImage != null) {
+          p.personImage = "data:image/jpeg;base64," + p.personImage;
+        }
         p.likesCount = p.likes.length;
         p.commentsCount = p.comments.length;
         p.currentUser = p.personId == this.currentPersonId;

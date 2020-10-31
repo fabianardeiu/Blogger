@@ -19,6 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeComponent } from './home/home/home.component';
 import { MyProfileComponent } from './my-profile/my-profile/my-profile.component';
 import { SharedModule } from './shared/shared.module';
+import { MyProfileModule } from './my-profile/my-profile.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { SharedModule } from './shared/shared.module';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    MyProfileComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -48,7 +49,7 @@ import { SharedModule } from './shared/shared.module';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatDialogModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
