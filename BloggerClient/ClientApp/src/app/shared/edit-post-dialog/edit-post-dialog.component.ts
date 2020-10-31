@@ -27,7 +27,9 @@ export class EditPostDialogComponent implements OnInit {
     this.postsService.getPostById(this.data).subscribe(res => {
       this.post = res;
       this.editPostForm.get('text').setValue(this.post.text);
-      this.postSnippet = "data:image/jpeg;base64," + this.post.image;
+      if (this.post.image != '') {
+        this.postSnippet = "data:image/jpeg;base64," + this.post.image;
+      }
     });
     this.editPostForm = this.fb.group({
       text: ['', [Validators.required]],

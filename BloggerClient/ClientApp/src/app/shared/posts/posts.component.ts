@@ -109,7 +109,9 @@ export class PostsComponent implements OnInit {
         this.postsService.updatePost(postToUpdate).subscribe(res => {
           this.snackBar.openSuccess('Post successfully updated.');
           this.posts.find(p => p.id == postId).text = postToUpdate.text;
-          this.posts.find(p => p.id == postId).image = "data:image/jpeg;base64," + postToUpdate.image;
+          if (postToUpdate.image != '') {
+            this.posts.find(p => p.id == postId).image = "data:image/jpeg;base64," + postToUpdate.image;
+          }
         });
       }
     });
@@ -125,7 +127,9 @@ export class PostsComponent implements OnInit {
         this.postsService.addPost(result).subscribe(res => {
           this.snackBar.openSuccess('Post successfully created.');
           this.postsService.getPostById(res).subscribe(res => {
-            res.image = "data:image/jpeg;base64," + res.image;
+            if (res.image != '') {
+              res.image = "data:image/jpeg;base64," + res.image;
+            }
             res.likesCount = res.likes.length;
             res.commentsCount = res.comments.length;
             this.posts.push(res);
