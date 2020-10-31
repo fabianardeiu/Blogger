@@ -4,7 +4,7 @@ using System;
 
 namespace BloggerCore.Commands.Posts
 {
-    public class CreatePostCommand : IRequest
+    public class CreatePostCommand : IRequest<Guid>
     {
         public CreatePostDto CreatePostDto { get; set; }
     }

@@ -42,7 +42,7 @@ export class PostsService {
   }
 
   addPost(post: Post) {
-    return this.httpClient.post<Post>(`${this.apiHost}/${this.baseUrl}`, post);
+    return this.httpClient.post<string>(`${this.apiHost}/${this.baseUrl}`, post);
   }
 
   getPostById(postId: string) {

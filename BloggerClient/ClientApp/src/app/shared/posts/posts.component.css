@@ -13,4 +13,9 @@
 .control-panel {
   position: sticky;
   top: 80px;
+
+}
+
+.fb-share-button{
+    float: right;
 }

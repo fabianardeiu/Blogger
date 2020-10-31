@@ -7,11 +7,15 @@
       </textarea>
     </mat-form-field>
 
-    <img mat-card-image *ngIf="post.image != null" [src]="post.image">
+    <div>
+      <img mat-card-image *ngIf="postSnippet != null" [src]="postSnippet">
+    </div>
 
-    <!--<input type="file"
+    <!--<img mat-card-image *ngIf="post.image != null" [src]="post.image">-->
+
+    <input type="file"
            (change)="onFileChanged($event)"
-           accept="image/jpeg" />-->
+           accept="image/jpeg" />
   </mat-dialog-content>
   <mat-dialog-actions class="justify-content-end">
     <button mat-button mat-raised-button type="submit" (click)="onConfirm()" color="primary" class="btn">Save</button>

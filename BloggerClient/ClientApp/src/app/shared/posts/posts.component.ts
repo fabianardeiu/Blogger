@@ -102,11 +102,14 @@ export class PostsComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        var updatedPost = new Post();
-        updatedPost.id = result.id;
-        updatedPost.text = result.text;
-        this.postsService.updatePost(updatedPost).subscribe(res => {
+        var postToUpdate = new Post();
+        postToUpdate.id = result.id;
+        postToUpdate.text = result.text;
+        postToUpdate.image = result.image;
+        this.postsService.updatePost(postToUpdate).subscribe(res => {
           this.snackBar.openSuccess('Post successfully updated.');
+          this.posts.find(p => p.id == postId).text = postToUpdate.text;
+          this.posts.find(p => p.id == postId).image = "data:image/jpeg;base64," + postToUpdate.image;
         });
       }
     });
@@ -121,6 +124,16 @@ export class PostsComponent implements OnInit {
       if (result) {
         this.postsService.addPost(result).subscribe(res => {
           this.snackBar.openSuccess('Post successfully created.');
+          this.postsService.getPostById(res).subscribe(res => {
+            res.image = "data:image/jpeg;base64," + res.image;
+            res.likesCount = res.likes.length;
+            res.commentsCount = res.comments.length;
+            this.posts.push(res);
+            this.posts.sort((val1, val2) => {
+              return new Date(val2.createdAt).getTime() - new
+                Date(val1.createdAt).getTime()
+            })
+          })
         });
       }
     });

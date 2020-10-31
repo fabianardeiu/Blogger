@@ -24,7 +24,7 @@ namespace BloggerCore.CommandsHandlers.Posts
             var post = await _unitOfWork.Posts.FirstOrDefaultAsync(p => p.Id == request.PostDto.Id);
 
             post.Text = request.PostDto.Text;
-            //post.Image = request.PostDto.Image;
+            post.Image = request.PostDto.Image;
 
             _unitOfWork.Posts.Update(post);
             await _unitOfWork.SaveChangesAsync();

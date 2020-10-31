@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BloggerCore.CommandsHandlers.Posts
 {
-    public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand>
+    public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, Guid>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -21,7 +21,7 @@ namespace BloggerCore.CommandsHandlers.Posts
             _mapper = mapper;
         }
 
-        public async Task<Unit> Handle(CreatePostCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreatePostCommand request, CancellationToken cancellationToken)
         {
             var post = _mapper.Map<Post>(request.CreatePostDto);
             post.CreatedAt = DateTime.Now;
@@ -29,7 +29,7 @@ namespace BloggerCore.CommandsHandlers.Posts
             _unitOfWork.Posts.Add(post);
             await _unitOfWork.SaveChangesAsync();
 
-            return default;
+            return post.Id;
         }
     }
 }

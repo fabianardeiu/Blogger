@@ -45,12 +45,12 @@ namespace BloggerApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreatePost([FromBody] CreatePostDto createPostDto)
         {
-            await _mediator.Send(new CreatePostCommand
+            var postId = await _mediator.Send(new CreatePostCommand
             {
                 CreatePostDto = createPostDto
             });
 
-            return Ok();
+            return Ok(postId);
         }
 
         [HttpPost]

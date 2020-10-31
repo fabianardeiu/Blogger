@@ -11,7 +11,7 @@ import { Post } from '../../models/post';
 export class AddPostDialogComponent implements OnInit {
   post: Post;
   addPostForm: FormGroup;
-
+  postSnippet: any;
 
   constructor(
     public dialogRef: MatDialogRef<AddPostDialogComponent>,
@@ -31,6 +31,8 @@ export class AddPostDialogComponent implements OnInit {
     let file = event.target.files[0];
     reader.onload = () => {
       this.post.image = reader.result.slice(23);
+      this.postSnippet = "data:image/jpeg;base64," + this.post.image;
+
     };
     reader.readAsDataURL(file);
   }

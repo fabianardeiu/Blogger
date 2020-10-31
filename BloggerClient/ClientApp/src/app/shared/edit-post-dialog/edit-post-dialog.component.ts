@@ -13,6 +13,8 @@ export class EditPostDialogComponent implements OnInit {
 
   editPostForm: FormGroup;
   post: Post;
+  postSnippet: any;
+
   constructor(
     public dialogRef: MatDialogRef<EditPostDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: string,
@@ -25,21 +27,22 @@ export class EditPostDialogComponent implements OnInit {
     this.postsService.getPostById(this.data).subscribe(res => {
       this.post = res;
       this.editPostForm.get('text').setValue(this.post.text);
-      this.post.image = "data:image/jpeg;base64," + this.post.image;
+      this.postSnippet = "data:image/jpeg;base64," + this.post.image;
     });
     this.editPostForm = this.fb.group({
       text: ['', [Validators.required]],
     });
   }
 
-  //onFileChanged(event) {
-  //  let reader = new FileReader();
-  //  let file = event.target.files[0];
-  //  reader.onload = () => {
-  //    this.post.image = reader.result.slice(23);
-  //  };
-  //  reader.readAsDataURL(file);
-  //}
+  onFileChanged(event) {
+    let reader = new FileReader();
+    let file = event.target.files[0];
+    reader.onload = () => {
+      this.post.image = reader.result.slice(23);
+      this.postSnippet = "data:image/jpeg;base64," + this.post.image;
+    };
+    reader.readAsDataURL(file);
+  }
 
   onConfirm() {
     if (this.editPostForm.valid) {

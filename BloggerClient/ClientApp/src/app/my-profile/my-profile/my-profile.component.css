@@ -1,6 +1,6 @@
 .my-profile-card {
   margin-bottom: 30px;
-  background-image: linear-gradient(rgb(63, 81, 181), rgb(184, 26, 134));
+  background-image: linear-gradient(rgb(63, 81, 181), rgb(63, 81, 181), rgb(0, 255, 208));
   color: white;
 }
 

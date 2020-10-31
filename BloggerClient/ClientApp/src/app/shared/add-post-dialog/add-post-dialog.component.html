@@ -2,10 +2,14 @@
   <mat-dialog-content>
     <mat-form-field style="width: 100%">
       <textarea matInput
-             placeholder="Text"
-             formControlName="text">
+                placeholder="Text"
+                formControlName="text">
       </textarea>
     </mat-form-field>
+
+    <div>
+      <img mat-card-image *ngIf="postSnippet != null" [src]="postSnippet">
+    </div>
 
     <input type="file"
            (change)="onFileChanged($event)"
