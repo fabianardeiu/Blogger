@@ -12,7 +12,8 @@ namespace BloggerCore.AutoMapperProfiles
             CreateMap<Post, PostDto>();
             CreateMap<CommentDto, Comment>();
             CreateMap<Comment, CommentDto>()
-                .ForMember(x => x.PersonName, y => y.MapFrom(z => z.Person.FirstName + " " + z.Person.LastName));
+                .ForMember(x => x.PersonName, y => y.MapFrom(z => z.Person.FirstName + " " + z.Person.LastName))
+                .ForMember(x => x.PersonImage, y => y.MapFrom(z => z.Person.Image));
             CreateMap<LikeDto, Like>();
         }
     }

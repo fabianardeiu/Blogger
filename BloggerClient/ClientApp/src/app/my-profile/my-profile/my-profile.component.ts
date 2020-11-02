@@ -31,7 +31,9 @@ export class MyProfileComponent implements OnInit {
     this.getPersonPosts();
     this.personsService.getPersonProfile(localStorage.getItem('personId')).subscribe(res => {
       this.person = res;
-      this.person.image = "data:image/jpeg;base64," + this.person.image;
+      if (res.image != '') {
+        this.person.image = "data:image/jpeg;base64," + this.person.image;
+      }
     });
   }
 

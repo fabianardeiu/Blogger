@@ -24,6 +24,11 @@ export class AddCommentsDialogComponent implements OnInit {
 
   ngOnInit() {
     this.postsService.getPostComments(this.data).subscribe(res => {
+      res.forEach(c => {
+        if (c.personImage != '') {
+          c.personImage = "data:image/jpeg;base64," + c.personImage;
+        }
+      })
       this.comments = res;
     })
     this.commentForm = this.fb.group({

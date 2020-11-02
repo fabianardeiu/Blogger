@@ -8,17 +8,24 @@
     </mat-form-field>
   </mat-dialog-content>
 
-  <mat-dialog-actions class="justify-content-end">
+  <mat-dialog-actions class="justify-content-end" style="margin-bottom:10px;">
     <button mat-button mat-raised-button type="submit" (click)="onConfirm()" color="primary">Save</button>
     <button mat-button mat-raised-button type="button" (click)="onDecline()" class="btn">Back</button>
   </mat-dialog-actions>
 
-  <div style="max-height:200px; overflow:auto; margin-top: 20px">
-    <mat-list>
+  <mat-card *ngIf="comments.length != 0" style="background-color: #3f51b5;max-height: 250px;overflow: auto;">
+    <mat-card-content>
       <mat-list-item *ngFor="let comment of comments">
-        <mat-divider></mat-divider>
-        <p><b>{{comment.personName}}:</b> {{comment.text}}</p>
+        <div *ngIf="comment.personImage != ''">
+          <img mat-card-avatar class="profile-image" [src]="comment.personImage" />
+          <span style="margin-left:10px; color:white"><b>{{comment.personName}}:</b> {{comment.text}}</span>
+        </div>
+
+        <div *ngIf="comment.personImage == ''">
+          <span style="margin-left:50px; color:white"><b>{{comment.personName}}:</b> {{comment.text}}</span>
+        </div>
+        <hr />
       </mat-list-item>
-    </mat-list>
-  </div>
+    </mat-card-content>
+  </mat-card>
 </form>

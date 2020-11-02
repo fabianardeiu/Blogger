@@ -2,7 +2,7 @@
   <app-nav-menu></app-nav-menu>
   <mat-card class="my-profile-card">
     <mat-card-header>
-      <img mat-card-avatar class="profile-image" [src]="person.image" />
+      <img mat-card-avatar *ngIf="person.image != ''" class="profile-image" [src]="person.image" />
       <mat-card-title>
         {{person.firstName}} {{person.lastName}}
       </mat-card-title>

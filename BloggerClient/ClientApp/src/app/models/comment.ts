@@ -3,4 +3,5 @@ export class Comment {
   text: string;
   personName: string;
   personId: string;
+  personImage: any;
 }

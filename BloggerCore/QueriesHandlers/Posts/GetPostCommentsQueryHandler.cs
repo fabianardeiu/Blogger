@@ -28,6 +28,7 @@ namespace BloggerCore.QueriesHandlers.Posts
             var commentsDtos = await _unitOfWork.Comments
                 .Include(c => c.Person)
                 .Where(c => c.PostId == request.PostId)
+                .OrderByDescending(c => c.CreatedAt)
                 .Select(c => _mapper.Map<CommentDto>(c))
                 .ToListAsync();
 

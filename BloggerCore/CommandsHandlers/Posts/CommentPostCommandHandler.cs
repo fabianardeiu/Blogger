@@ -24,6 +24,7 @@ namespace BloggerCore.CommandsHandlers.Posts
         public async Task<Unit> Handle(CommentPostCommand request, CancellationToken cancellationToken)
         {
             var comment = _mapper.Map<Comment>(request.CommentDto);
+            comment.CreatedAt = DateTime.Now;
 
             _unitOfWork.Comments.Add(comment);
             await _unitOfWork.SaveChangesAsync();
