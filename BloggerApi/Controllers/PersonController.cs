@@ -20,6 +20,14 @@ namespace BloggerApi.Controllers
             _mediator = mediator;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAllPersons()
+        {
+            var personsDtos = await _mediator.Send(new GetAllPersonsQuery());
+
+            return Ok(personsDtos);
+        }
+
         [HttpPost]
         [Route("update-profile")]
         public async Task<IActionResult> UpdatePofile([FromBody] PersonDto personDto)

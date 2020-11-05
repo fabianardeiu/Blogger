@@ -15,6 +15,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
 import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.component';
 import { EditPostDialogComponent } from './edit-post-dialog/edit-post-dialog.component';
 import { UpdateProfileDialogComponent } from './update-profile-dialog/update-profile-dialog.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { UpdateProfileDialogComponent } from './update-profile-dialog/update-pro
     MatListModule,
     MatCardModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule
   ],
   exports: [
     AddCommentsDialogComponent,

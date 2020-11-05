@@ -10,6 +10,8 @@ import { AddPostDialogComponent } from '../add-post-dialog/add-post-dialog.compo
 import { EditPostDialogComponent } from '../edit-post-dialog/edit-post-dialog.component';
 import { Person } from '../../models/person';
 import { PersonsService } from '../../services/persons.service';
+import { Local } from 'protractor/built/driverProviders';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -26,8 +28,8 @@ export class PostsComponent implements OnInit {
     private postsService: PostsService,
     private personsService: PersonsService,
     private dialog: MatDialog,
-    private snackBar: SimpleSnackBarService
-
+    private snackBar: SimpleSnackBarService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -156,4 +158,13 @@ export class PostsComponent implements OnInit {
     dialogRef = null;
   }
 
+  navigateToPersonProfile(personId) {
+    if (personId == localStorage.getItem('personId')) {
+      this.router.navigate(['my-profile']);
+    }
+    else {
+      this.router.navigate(['person-profile'], { queryParams: { personId: encodeURIComponent(personId) } });
+    }
+    console.log(personId);
+  }
 }

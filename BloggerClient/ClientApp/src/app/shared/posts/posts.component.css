@@ -10,9 +10,13 @@
 
 .control-panel {
   position: sticky;
-  top: 80px;
+  top: 100px;
 }
 
 .fb-share-button{
     float: right;
+}
+
+.profile-image:hover {
+  cursor: pointer;
 }

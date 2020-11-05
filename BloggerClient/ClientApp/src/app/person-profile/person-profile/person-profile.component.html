@@ -6,16 +6,10 @@
       <mat-card-title>
         {{person.firstName}} {{person.lastName}}
       </mat-card-title>
-
-      <div style="margin-left:auto;">
-        <button mat-icon-button (click)="updateProfile()" matTooltip="Edit profile">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button matTooltip="See friends">
-          <mat-icon>group</mat-icon>
-        </button>
-      </div>
-      
+      <button mat-icon-button style="margin-left: auto;" (click)="addFriend()"
+              matTooltip="Add friend">
+        <mat-icon>person_add</mat-icon>
+      </button>
     </mat-card-header>
   </mat-card>
 

@@ -19,7 +19,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeComponent } from './home/home/home.component';
 import { MyProfileComponent } from './my-profile/my-profile/my-profile.component';
 import { SharedModule } from './shared/shared.module';
-import { MyProfileModule } from './my-profile/my-profile.module';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { PersonProfileComponent } from './person-profile/person-profile/person-profile.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { MyProfileModule } from './my-profile/my-profile.module';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    PersonProfileComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -38,7 +41,8 @@ import { MyProfileModule } from './my-profile/my-profile.module';
       { path: '', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'home', component: HomeComponent },
-      { path: 'my-profile', component: MyProfileComponent }
+      { path: 'my-profile', component: MyProfileComponent },
+      { path: 'person-profile', component: PersonProfileComponent }
     ]),
     BrowserAnimationsModule,
     MatCardModule,
@@ -50,6 +54,8 @@ import { MyProfileModule } from './my-profile/my-profile.module';
     MatSnackBarModule,
     MatDialogModule,
     SharedModule,
+    MatAutocompleteModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent],

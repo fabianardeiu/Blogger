@@ -1,7 +1,7 @@
 <div class="wall">
 
   <div class="control-panel">
-    <button mat-fab color="primary" (click)="addPost()"><mat-icon>add</mat-icon></button>
+    <button mat-fab color="primary" (click)="addPost()" matTooltip="Add post"><mat-icon>add</mat-icon></button>
     <div class="fb-share-button"
          data-href="https://google.com"
          data-layout="button_count">
@@ -11,7 +11,7 @@
   <mat-card class="example-card" *ngFor="let post of posts">
 
     <mat-card-header>
-      <img *ngIf="post.personImage != null" mat-card-avatar class="profile-image" [src]="post.personImage" />
+      <img (click)="navigateToPersonProfile(post.personId)" *ngIf="post.personImage != null" mat-card-avatar class="profile-image" [src]="post.personImage" />
       <mat-card-title>{{post.personName}}</mat-card-title>
       <mat-card-subtitle>{{post.createdAt | date: 'dd-MMM HH:mm'}}</mat-card-subtitle>
       <div class="marks-menu" style="margin-left: auto;" *ngIf="post.currentUser">
