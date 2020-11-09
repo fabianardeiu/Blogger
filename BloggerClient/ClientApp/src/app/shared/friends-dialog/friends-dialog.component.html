@@ -13,7 +13,6 @@
     </mat-list-item>
   </mat-card-content>
 </mat-card>-->
-
 <mat-list-item *ngFor="let friend of friends">
   <div *ngIf="friend.image != ''">
     <img mat-card-avatar class="profile-image" [src]="friend.image" />
@@ -25,3 +24,6 @@
   </div>
   <hr />
 </mat-list-item>
+
+<mat-spinner *ngIf="!dataLoaded" style="margin:0 auto;"></mat-spinner>
+

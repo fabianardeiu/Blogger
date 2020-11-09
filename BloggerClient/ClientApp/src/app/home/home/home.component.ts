@@ -10,13 +10,16 @@ import { Post } from '../../models/post';
 export class HomeComponent implements OnInit {
   posts: Post[] = [];
   currentPersonId: string;
+  dataLoaded: boolean;
 
   constructor(
     private postsService: PostsService,
   ) { }
 
   ngOnInit() {
+    this.dataLoaded = false;
     this.getAllPosts();
+
     this.currentPersonId = localStorage.getItem('personId');
   }
 
@@ -34,6 +37,7 @@ export class HomeComponent implements OnInit {
         p.currentUser = p.personId == this.currentPersonId;
       });
       this.posts = res;
+      this.dataLoaded = true;
     });
   }
 }

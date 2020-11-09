@@ -22,6 +22,7 @@ import { SharedModule } from './shared/shared.module';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PersonProfileComponent } from './person-profile/person-profile/person-profile.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatDialogModule,
     SharedModule,
     MatAutocompleteModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

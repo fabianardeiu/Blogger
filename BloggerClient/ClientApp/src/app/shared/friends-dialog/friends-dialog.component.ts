@@ -11,6 +11,7 @@ import { Person } from '../../models/person';
 export class FriendsDialogComponent implements OnInit {
 
   friends: Person[] = [];
+  dataLoaded: boolean;
 
   constructor(
     public dialogRef: MatDialogRef<FriendsDialogComponent>,
@@ -20,6 +21,8 @@ export class FriendsDialogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.dataLoaded = false;
+
     this.personsService.getPersonFriends(this.data).subscribe(res => {
       res.forEach(f => {
         f.name = f.firstName + ' ' + f.lastName;
@@ -29,6 +32,8 @@ export class FriendsDialogComponent implements OnInit {
       }
       );
       this.friends = res;
+
+      this.dataLoaded = true;
     });
   }
 

@@ -33,7 +33,6 @@ export class PostsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this.currentPersonId = localStorage.getItem('personId');
 
     this.personsService.getPersonProfile(localStorage.getItem('personId')).subscribe(res => {

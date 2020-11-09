@@ -18,6 +18,7 @@ export class MyProfileComponent implements OnInit {
   person: Person;
   posts: Post[] = [];
   currentPersonId: string;
+  dataLoaded: boolean;
 
   constructor(
     private postsService: PostsService,
@@ -28,6 +29,8 @@ export class MyProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dataLoaded = false;
+
     this.currentPersonId = localStorage.getItem('personId');
     this.getPersonPosts();
     this.personsService.getPersonProfile(localStorage.getItem('personId')).subscribe(res => {
@@ -52,6 +55,7 @@ export class MyProfileComponent implements OnInit {
         p.currentUser = p.personId == this.currentPersonId;
       });
       this.posts = res;
+      this.dataLoaded = true;
     });
   }
 

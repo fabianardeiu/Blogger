@@ -15,9 +15,11 @@
           <mat-icon>group</mat-icon>
         </button>
       </div>
-      
+
     </mat-card-header>
   </mat-card>
 
   <app-posts [posts]="posts"></app-posts>
+  <mat-spinner *ngIf="!dataLoaded" style="margin:0 auto;"></mat-spinner>
+
 </div>

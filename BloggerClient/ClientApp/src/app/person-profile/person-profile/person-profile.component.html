@@ -14,4 +14,6 @@
   </mat-card>
 
   <app-posts [posts]="posts"></app-posts>
+
+  <mat-spinner *ngIf="!dataLoaded" style="margin:0 auto;"></mat-spinner>
 </div>

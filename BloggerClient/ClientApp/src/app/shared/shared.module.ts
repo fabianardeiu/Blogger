@@ -17,6 +17,7 @@ import { EditPostDialogComponent } from './edit-post-dialog/edit-post-dialog.com
 import { UpdateProfileDialogComponent } from './update-profile-dialog/update-profile-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FriendsDialogComponent } from './friends-dialog/friends-dialog.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { FriendsDialogComponent } from './friends-dialog/friends-dialog.componen
     MatCardModule,
     MatMenuModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     AddCommentsDialogComponent,
@@ -57,7 +59,7 @@ import { FriendsDialogComponent } from './friends-dialog/friends-dialog.componen
     AddPostDialogComponent,
     EditPostDialogComponent,
     UpdateProfileDialogComponent,
-    FriendsDialogComponent
+    FriendsDialogComponent,
   ]
 })
 export class SharedModule { }

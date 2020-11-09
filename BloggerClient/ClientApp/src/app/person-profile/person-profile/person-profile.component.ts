@@ -15,6 +15,7 @@ export class PersonProfileComponent implements OnInit {
   person: Person;
   posts: Post[] = [];
   personId: string;
+  dataLoaded: boolean;
 
   constructor(
     private postsService: PostsService,
@@ -24,6 +25,8 @@ export class PersonProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dataLoaded = false;
+
     this.route.queryParams.subscribe(params => {
       this.personId = params['personId'];
     });
@@ -51,6 +54,7 @@ export class PersonProfileComponent implements OnInit {
         p.currentUser = p.personId == this.personId;
       });
       this.posts = res;
+      this.dataLoaded = true;
     });
   }
 
