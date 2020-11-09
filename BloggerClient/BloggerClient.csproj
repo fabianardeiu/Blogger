@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\models\add-friend.ts" />
     <None Remove="ClientApp\src\app\models\comment.ts" />
     <None Remove="ClientApp\src\app\models\like.ts" />
     <None Remove="ClientApp\src\app\models\person.ts" />
@@ -40,6 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\models\add-friend.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\comment.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\like.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\person.ts" />

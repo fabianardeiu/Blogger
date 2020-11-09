@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace BloggerDomain
+namespace BloggerCore.Dtos
 {
-    public class Friend : BaseEntity
+    public class AddFriendDto
     {
         public Guid PersonId { get; set; }
         public Guid FriendId { get; set; }

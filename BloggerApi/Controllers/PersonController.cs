@@ -48,5 +48,29 @@ namespace BloggerApi.Controllers
 
             return Ok(personDto);
         }
+
+        [HttpGet]
+        [Route("friends/{personId}")]
+        public async Task<IActionResult> GetPersonFriends(Guid personId)
+        {
+            var friends = await _mediator.Send(new GetPersonFriendsQuery
+            {
+                PersonId = personId
+            });
+
+            return Ok(friends);
+        }
+
+        [HttpPost]
+        [Route("friends")]
+        public async Task<IActionResult> AddFriend(AddFriendDto addFriendDto)
+        {
+            await _mediator.Send(new AddFriendCommand
+            {
+                AddFriendDto = addFriendDto
+            });
+
+            return Ok();
+        }
     }
 }

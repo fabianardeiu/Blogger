@@ -16,6 +16,7 @@ import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.compon
 import { EditPostDialogComponent } from './edit-post-dialog/edit-post-dialog.component';
 import { UpdateProfileDialogComponent } from './update-profile-dialog/update-profile-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { FriendsDialogComponent } from './friends-dialog/friends-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +25,16 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ConfirmationDialogComponent,
     AddPostDialogComponent,
     EditPostDialogComponent,
-    UpdateProfileDialogComponent
+    UpdateProfileDialogComponent,
+    FriendsDialogComponent
   ],
   entryComponents: [
     AddCommentsDialogComponent,
     ConfirmationDialogComponent,
     AddPostDialogComponent,
     EditPostDialogComponent,
-    UpdateProfileDialogComponent
+    UpdateProfileDialogComponent,
+    FriendsDialogComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +56,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ConfirmationDialogComponent,
     AddPostDialogComponent,
     EditPostDialogComponent,
-    UpdateProfileDialogComponent
+    UpdateProfileDialogComponent,
+    FriendsDialogComponent
   ]
 })
 export class SharedModule { }

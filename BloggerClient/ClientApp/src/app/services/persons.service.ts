@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Person } from '../models/person';
 import { Observable } from 'rxjs';
+import { AddFriend } from '../models/add-friend';
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +26,13 @@ export class PersonsService {
   getAllPersons(): Observable<Person[]> {
     return this.httpClient.get<Person[]>(`${this.apiHost}/${this.baseUrl}`);
   }
+
+  getPersonFriends(personId: string): Observable<Person[]> {
+    return this.httpClient.get<Person[]>(`${this.apiHost}/${this.baseUrl}/friends/${personId}`);
+  }
+
+  addFriend(addFriendModel: AddFriend) {
+    return this.httpClient.post<Person>(`${this.apiHost}/${this.baseUrl}/friends`, addFriendModel)
+  }
+
 }

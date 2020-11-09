@@ -1,6 +1,7 @@
 ﻿using BloggerCore;
 using BloggerDomain;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace BloggerApi
 {
@@ -31,6 +32,8 @@ namespace BloggerApi
                         .HasMany(p => p.Likes)
                         .WithOne(l => l.Post)
                         .OnDelete(DeleteBehavior.NoAction);
+
+            base.OnModelCreating(builder);
         }
     }
 }

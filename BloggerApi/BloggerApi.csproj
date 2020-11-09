@@ -17,6 +17,10 @@
     <Compile Remove="Migrations\20201020071734_InitialCreate.Designer.cs" />
     <Compile Remove="Migrations\20201020071902_InitialCreate.cs" />
     <Compile Remove="Migrations\20201020071902_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20201109104659_FixPersonFriendTable.cs" />
+    <Compile Remove="Migrations\20201109104659_FixPersonFriendTable.Designer.cs" />
+    <Compile Remove="Migrations\20201109105455_FixPersonFriendTable2.cs" />
+    <Compile Remove="Migrations\20201109105455_FixPersonFriendTable2.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

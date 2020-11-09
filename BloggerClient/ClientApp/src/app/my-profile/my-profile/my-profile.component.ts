@@ -6,6 +6,7 @@ import { SimpleSnackBarService } from '../../services/simple-snack-bar.service';
 import { UpdateProfileDialogComponent } from '../../shared/update-profile-dialog/update-profile-dialog.component';
 import { PersonsService } from '../../services/persons.service';
 import { Person } from '../../models/person';
+import { FriendsDialogComponent } from '../../shared/friends-dialog/friends-dialog.component';
 
 @Component({
   selector: 'app-my-profile',
@@ -69,6 +70,13 @@ export class MyProfileComponent implements OnInit {
           this.getPersonPosts();
         });
       }
+    });
+  }
+
+  getFriends() {
+    let dialogRef = this.dialog.open(FriendsDialogComponent, {
+      width: '400px',
+      data: this.currentPersonId
     });
   }
 }

@@ -4,6 +4,7 @@ import { Post } from '../../models/post';
 import { PostsService } from '../../services/posts.service';
 import { ActivatedRoute } from '@angular/router';
 import { PersonsService } from '../../services/persons.service';
+import { AddFriend } from '../../models/add-friend';
 
 @Component({
   selector: 'app-person-profile',
@@ -54,8 +55,12 @@ export class PersonProfileComponent implements OnInit {
   }
 
   addFriend() {
-    //TO DO Add friend action
-    console.log(this.personId);
+    var addFriendModel = new AddFriend();
+    addFriendModel.personId = localStorage.getItem('personId');
+    addFriendModel.friendId = this.personId;
+
+    this.personsService.addFriend(addFriendModel)
+      .subscribe(res => console.log(res));
   }
 
 }

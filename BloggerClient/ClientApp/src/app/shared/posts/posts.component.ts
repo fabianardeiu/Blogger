@@ -165,6 +165,5 @@ export class PostsComponent implements OnInit {
     else {
       this.router.navigate(['person-profile'], { queryParams: { personId: encodeURIComponent(personId) } });
     }
-    console.log(personId);
   }
 }
