@@ -32,7 +32,7 @@ export class PersonsService {
   }
 
   addFriend(addFriendModel: AddFriend) {
-    return this.httpClient.post<Person>(`${this.apiHost}/${this.baseUrl}/friends`, addFriendModel)
+    return this.httpClient.post<boolean>(`${this.apiHost}/${this.baseUrl}/friends`, addFriendModel)
   }
 
 }

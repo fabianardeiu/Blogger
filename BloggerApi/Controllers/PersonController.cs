@@ -65,12 +65,12 @@ namespace BloggerApi.Controllers
         [Route("friends")]
         public async Task<IActionResult> AddFriend(AddFriendDto addFriendDto)
         {
-            await _mediator.Send(new AddFriendCommand
+            var result = await _mediator.Send(new AddFriendCommand
             {
                 AddFriendDto = addFriendDto
             });
 
-            return Ok();
+            return Ok(result);
         }
     }
 }

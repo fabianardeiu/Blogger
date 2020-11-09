@@ -9,8 +9,6 @@ export class Post {
   personName: string;
   personImage: any;
   personId: string;
-  likes: Like[];
-  comments: Comment[];
   likesCount: number;
   commentsCount: number;
   currentUser: boolean;

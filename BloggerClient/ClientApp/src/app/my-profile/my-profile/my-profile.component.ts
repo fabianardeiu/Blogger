@@ -50,8 +50,6 @@ export class MyProfileComponent implements OnInit {
         if (p.personImage != null) {
           p.personImage = "data:image/jpeg;base64," + p.personImage;
         }
-        p.likesCount = p.likes.length;
-        p.commentsCount = p.comments.length;
         p.currentUser = p.personId == this.currentPersonId;
       });
       this.posts = res;

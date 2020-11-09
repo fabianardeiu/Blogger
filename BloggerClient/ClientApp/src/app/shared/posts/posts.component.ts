@@ -51,11 +51,9 @@ export class PostsComponent implements OnInit {
 
     this.postsService.likePost(newLike).subscribe(like => {
       if (!like) {
-        post.likes = post.likes.filter(l => l.personId != this.currentPersonId);
         post.likesCount -= 1;
       }
       else {
-        post.likes.push(newLike);
         post.likesCount += 1;
       }
 

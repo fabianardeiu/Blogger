@@ -12,7 +12,7 @@ namespace BloggerCore.Dtos
         public string PersonName { get; set; }
         public byte[] PersonImage { get; set; }
         public DateTime CreatedAt { get; set; }
-        public ICollection<LikeDto> Likes { get; set; }
-        public ICollection<CommentDto> Comments { get; set; }
+        public int LikesCount { get; set; }
+        public int CommentsCount { get; set; }
     }
 }

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BloggerCore.CommandsHandlers.Persons
 {
-    public class AddFriendCommandHandler : IRequestHandler<AddFriendCommand>
+    public class AddFriendCommandHandler : IRequestHandler<AddFriendCommand, bool>
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -20,18 +20,18 @@ namespace BloggerCore.CommandsHandlers.Persons
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<Unit> Handle(AddFriendCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(AddFriendCommand request, CancellationToken cancellationToken)
         {
-            //var person = await _unitOfWork.Persons.SingleOrDefaultAsync(p => p.Id == request.AddFriendDto.PersonId);
-            //var friend = await _unitOfWork.Persons.SingleOrDefaultAsync(p => p.Id == request.AddFriendDto.FriendId);
+            var alreadyFriends = _unitOfWork.Friends.Any(f => f.PersonId == request.AddFriendDto.PersonId && f.FriendId == request.AddFriendDto.FriendId);
+
+            if (alreadyFriends)
+                return false;
 
             _unitOfWork.Friends.Add(new Friend { PersonId = request.AddFriendDto.PersonId, FriendId = request.AddFriendDto.FriendId });
 
-
-            //_unitOfWork.Friends.Add(new Friend { PersonId = person.Id, Person = friend });
             await _unitOfWork.SaveChangesAsync();
 
-            return default;
+            return true;
         }
     }
 }

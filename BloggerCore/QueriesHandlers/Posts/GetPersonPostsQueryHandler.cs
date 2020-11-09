@@ -35,8 +35,8 @@ namespace BloggerCore.QueriesHandlers.Posts
                     PersonImage = p.Person.Image,
                     Image = p.Image,
                     Text = p.Text,
-                    Likes = p.Likes.Select(l => new LikeDto { PostId = l.PostId, PersonName = l.Person.FirstName + " " + l.Person.LastName }).ToList(),
-                    Comments = p.Comments.Select(c => new CommentDto {PostId = c.PostId, Text = c.Text, PersonName = c.Person.FirstName + " " + c.Person.LastName }).ToList()
+                    LikesCount = p.Likes.Count,
+                    CommentsCount = p.Comments.Count
                 })
                 .OrderByDescending(p => p.CreatedAt)
                 .ToListAsync();

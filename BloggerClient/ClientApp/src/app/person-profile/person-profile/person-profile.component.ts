@@ -5,6 +5,7 @@ import { PostsService } from '../../services/posts.service';
 import { ActivatedRoute } from '@angular/router';
 import { PersonsService } from '../../services/persons.service';
 import { AddFriend } from '../../models/add-friend';
+import { SimpleSnackBarService } from '../../services/simple-snack-bar.service';
 
 @Component({
   selector: 'app-person-profile',
@@ -20,6 +21,7 @@ export class PersonProfileComponent implements OnInit {
   constructor(
     private postsService: PostsService,
     private personsService: PersonsService,
+    private snackBar: SimpleSnackBarService,
     private route: ActivatedRoute
   ) {
   }
@@ -49,9 +51,7 @@ export class PersonProfileComponent implements OnInit {
         if (p.personImage != null) {
           p.personImage = "data:image/jpeg;base64," + p.personImage;
         }
-        p.likesCount = p.likes.length;
-        p.commentsCount = p.comments.length;
-        p.currentUser = p.personId == this.personId;
+        p.currentUser = false;
       });
       this.posts = res;
       this.dataLoaded = true;
@@ -64,7 +64,14 @@ export class PersonProfileComponent implements OnInit {
     addFriendModel.friendId = this.personId;
 
     this.personsService.addFriend(addFriendModel)
-      .subscribe(res => console.log(res));
+      .subscribe(res => {
+        if (res) {
+          this.snackBar.openSuccess('Friend successfully added.');
+        }
+        else {
+          this.snackBar.openSuccess('You are already friends.');
+        }
+      });
   }
 
 }
