@@ -140,8 +140,8 @@ export class PostsComponent implements OnInit {
             if (this.currentPerson.image != null) {
               res.personImage = this.currentPerson.image;
             }
-            res.likesCount = res.likes.length;
-            res.commentsCount = res.comments.length;
+            res.likesCount = res.likesCount;
+            res.commentsCount = res.commentsCount;
             res.currentUser = true;
             this.posts.push(res);
             this.posts.sort((val1, val2) => {
