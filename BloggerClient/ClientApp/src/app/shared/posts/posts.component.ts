@@ -21,6 +21,7 @@ import { Router } from '@angular/router';
 export class PostsComponent implements OnInit {
 
   @Input() posts: Post[];
+  @Input() addPosts: boolean = true;
   currentPersonId: string;
   currentPerson: Person;
 
