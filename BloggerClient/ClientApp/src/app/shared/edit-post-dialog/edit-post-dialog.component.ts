@@ -14,6 +14,7 @@ export class EditPostDialogComponent implements OnInit {
   editPostForm: FormGroup;
   post: Post;
   postSnippet: any;
+  dataLoaded: boolean;
 
   constructor(
     public dialogRef: MatDialogRef<EditPostDialogComponent>,
@@ -24,12 +25,16 @@ export class EditPostDialogComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dataLoaded = false;
+
     this.postsService.getPostById(this.data).subscribe(res => {
       this.post = res;
       this.editPostForm.get('text').setValue(this.post.text);
       if (this.post.image != '') {
         this.postSnippet = "data:image/jpeg;base64," + this.post.image;
       }
+      this.dataLoaded = true;
+
     });
     this.editPostForm = this.fb.group({
       text: ['', [Validators.required]],

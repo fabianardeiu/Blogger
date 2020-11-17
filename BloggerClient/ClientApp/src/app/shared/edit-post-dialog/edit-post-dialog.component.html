@@ -1,5 +1,7 @@
+<mat-spinner *ngIf="!dataLoaded" style="margin:0 auto;"></mat-spinner>
+
 <form [formGroup]="editPostForm">
-  <mat-dialog-content>
+  <mat-dialog-content *ngIf="dataLoaded">
     <mat-form-field style="width: 100%">
       <textarea matInput
                 placeholder="Text"

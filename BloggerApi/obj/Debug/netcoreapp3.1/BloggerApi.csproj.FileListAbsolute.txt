@@ -1,6 +1,5 @@
 C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerApi\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerApi\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerApi\bin\Debug\netcoreapp3.1\BloggerApi.exe
 C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerApi\obj\Debug\netcoreapp3.1\BloggerApi.csprojAssemblyReference.cache
 C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerApi\obj\Debug\netcoreapp3.1\BloggerApi.AssemblyInfoInputs.cache
@@ -160,3 +159,4 @@ C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerApi\bin\Debug\netcoreapp3.
 C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerApi\bin\Debug\netcoreapp3.1\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerApi\obj\Debug\netcoreapp3.1\BloggerApi.csproj.CoreCompileInputs.cache
 C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerApi\obj\Debug\netcoreapp3.1\BloggerApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Fabian\Personal Projects\Blogger\BloggerApi\BloggerApi\obj\Debug\netcoreapp3.1\scopedcss\bundle\BloggerApi.styles.css
